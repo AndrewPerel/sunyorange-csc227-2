@@ -1,0 +1,77 @@
+function main()
+{
+	findTree();
+}
+
+
+
+
+function findTree()
+{
+	if (frontIsClear())
+	{
+		move();
+		findTree();
+	}
+
+	if (frontIsBlocked())
+	{
+		turnLeft();
+		climbTree();
+	}
+}
+
+function climbTree()
+{
+	if (rightIsClear())
+	{
+		placeLeaves();
+	}
+
+	if (rightIsBlocked())
+	{
+		move();
+		climbTree();
+	}
+}
+
+function placeLeaves()
+{
+	turnLeft();
+	turnLeft();
+	move();
+	turnLeft();
+	turnLeft();
+	putBeeper();
+	move();
+	putBeeper();
+	turnRight();
+	move();
+	putBeeper();
+	turnRight();
+	move();
+	putBeeper();
+	downTree();
+}
+
+function downTree()
+{
+	if (frontIsClear())
+	{
+		move();
+		downTree();
+	}
+
+	if (frontIsBlocked())
+	{
+		turnLeft();
+		findTree();
+	}
+}
+
+function turnRight()
+{
+	turnLeft();
+	turnLeft();
+	turnLeft();
+}
