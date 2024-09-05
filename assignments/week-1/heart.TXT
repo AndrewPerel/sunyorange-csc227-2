@@ -4,7 +4,11 @@ function main()
 	move();
 	move();
 	turnRight();
-	placeBeepers();
+
+	repeat (9)
+	{
+		placeBeepers();
+	}
 }
 
 function placeBeepers()
@@ -49,9 +53,13 @@ function return()
 	}
 
 	turnRight();
-	move();
+	
+	if (frontIsClear())
+	{
+		move();
+	}
+
 	turnRight();
-	placeBeepers();
 }
 
 function turnRight()

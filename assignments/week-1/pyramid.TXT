@@ -1,18 +1,14 @@
-function climbHill()
+function main()
 {
-	climb();
-	climb();
-	climb();
-	climb();
-	climb();
-	climb();
+	while (frontIsBlocked())
+	{
+		climb();
+	}
 
-	climbDown();
-	climbDown();
-	climbDown();
-	climbDown();
-	climbDown();
-	climbDown();
+	repeat (6)
+	{
+		climbDown();
+	}
 }
 
 function climb()

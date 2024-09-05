@@ -1,37 +1,32 @@
 function main()
 {
-	findTree();
+	repeat (4)
+	{
+		findTree();
+		climbTree();
+		placeLeaves();
+		downTree();
+	}
 }
-
-
-
 
 function findTree()
 {
-	if (frontIsClear())
+	while (frontIsClear())
 	{
 		move();
-		findTree();
 	}
 
 	if (frontIsBlocked())
 	{
 		turnLeft();
-		climbTree();
 	}
 }
 
 function climbTree()
 {
-	if (rightIsClear())
-	{
-		placeLeaves();
-	}
-
-	if (rightIsBlocked())
-	{
+	while (rightIsBlocked())
+	{	
 		move();
-		climbTree();
 	}
 }
 
@@ -51,22 +46,16 @@ function placeLeaves()
 	turnRight();
 	move();
 	putBeeper();
-	downTree();
 }
 
 function downTree()
 {
-	if (frontIsClear())
+	while (frontIsClear())
 	{
 		move();
-		downTree();
 	}
 
-	if (frontIsBlocked())
-	{
-		turnLeft();
-		findTree();
-	}
+	turnLeft();
 }
 
 function turnRight()
@@ -74,4 +63,4 @@ function turnRight()
 	turnLeft();
 	turnLeft();
 	turnLeft();
-}
+} 
