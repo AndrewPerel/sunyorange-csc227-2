@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+
+<script>
+	let b, h, result = null;
+
+	b = Number(prompt("Enter a base"));
+	h = Number(prompt("Enter a height"));
+	findArea(b, h);
+	console.log("The area for a triangle with a base of " + b + " and a height of " + h + " is " + result);
+
+	function findArea(b, h)
+	{
+		result = b * h / 2
+
+		return result;
+	}
+</script>
+
+</body>
+</html>
