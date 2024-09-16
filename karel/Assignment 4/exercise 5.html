@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+
+<script>
+	let n, result = 0;
+	let x = 1;
+
+	n = Number(prompt("Enter an amount of odd integers to be added together"));
+	oddInts(n);
+	console.log("The sum of the " + n + " first odd integers is " + result);
+
+	function oddInts(n)
+	{
+		while (n > 0)
+		{
+			result+=x;
+			x+=2;
+			n--;
+		}
+
+		return result;
+	}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+
+<script>
+	let x = Number(prompt("Enter a number to be divided"));
+	let y = Number(prompt("Enter a number to divide with"));
+	algorithm(x, y);
+	console.log(y);
+
+	function algorithm(x, y)
+	{
+		let n = x % y;
+		while (n !== 0)
+		{
+			x = y = n;
+			n = x % y;
+		}
+
+		return y;
+	}
+</script>
+
+</body>
+</html>
