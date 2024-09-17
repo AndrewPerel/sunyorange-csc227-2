@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+
+<script>
+	diamond();
+
+	function diamond()
+	{
+		let x = Number(prompt("Enter diamond maximum width"));
+		let y = Math.floor(x / 2);
+		let s = "";
+		let n = 1;
+
+		//top lines
+		while (n != x)
+		{
+			s = (" ").repeat(y)  + ("*").repeat(n) + (" ").repeat(y);
+			y--;
+			n+=2;
+			console.log(s);
+		}
+
+		//middle and bottom lines
+		while (n != 0 && y >= 0 && n >= 0)
+		{
+			s = (" ").repeat(y)  + ("*").repeat(n) + (" ").repeat(y);
+			y++;
+			n-=2;
+			console.log(s);
+		}
+	}
+</script>
+
+</body>
+</html>
