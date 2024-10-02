@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+
+<script>
+	main();
+
+	function main()
+	{
+		let x = Number(prompt("Enter 1st number"));
+		let y = Number(prompt("Enter 2nd number"));
+		let z = Number(prompt("Enter 3rd number"));
+	
+		num3(x, y, z);
+	}
+
+	function num3(x, y, z)
+	{
+		let largest = null;
+
+		if (x > y && x > z)
+		{
+			largest = x;
+		}
+
+		else if (y > x && y > z)
+		{
+			largest = y;
+		}
+
+		else (z > y && z > x)
+		{
+			largest = z;
+		}
+	
+		console.log(largest + " is the largest of the three entered numbers [" + x + ", " + y + ", " + z + "]");
+	}
+</script>
+
+</body>
+</html>
