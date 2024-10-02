@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+
+<script>
+	const width = Number(prompt("Enter diamond maximum width"));
+	
+	checkOddNumber(width)
+
+	function checkOddNumber(width)
+	{
+		if (width % 2 !== 0)
+		{
+			diamond(width);
+		}
+
+		else
+		{
+			console.log("Enter odd numbers only")
+		}
+	}
+
+	function diamond(width)
+	{
+		let y = Math.floor(width / 2);
+		let s = "";
+		let n = 1;
+
+		//top lines
+		while (n != width)
+		{
+			drawRow(y, s, n);
+			y--;
+			n+=2;
+		}
+
+		//middle and bottom lines
+		while (n >= 0)
+		{
+			drawRow(y, s, n);
+			y++;
+			n-=2;
+		}
+	}
+
+	function drawRow(y, s, n)
+	{
+		console.log((" ").repeat(y)  + ("*").repeat(n) + (" ").repeat(y));
+	}
+</script>
+
+</body>
+</html>
