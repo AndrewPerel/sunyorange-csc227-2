@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+
+<script>
+	main();
+
+	function main()
+	{
+		let x = Number(prompt("Enter a number to be divided"));
+		let y = Number(prompt("Enter a number to divide with"));
+
+		quotient(x, y);
+	}
+
+	function quotient(x, y)
+	{
+		let result = 0;
+		let n = x;
+		
+		while (n > y)
+		{
+			n = n - y;
+			result++;
+		}
+
+		console.log(x + " divided by " + y + " = " + result + " assuming no remainder");
+	}
+
+
+</script>
+
+</body>
+</html>

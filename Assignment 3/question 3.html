@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+
+<script>
+	main();
+
+	function main()
+	{
+		let x = Number(prompt("Enter a number whose sum of integers are to be added together"));	
+
+		sumFirstNIntergers(x);
+	}
+
+	function sumFirstNIntergers(x)
+	{
+		let result = 0;
+		let n = x;	
+
+		while (n > 0)
+		{
+			result = result + n;
+			n--;
+		}
+
+		console.log("The sum of " + x + "'s parts is " + result);
+	}
+</script>
+
+</body>
+</html>
