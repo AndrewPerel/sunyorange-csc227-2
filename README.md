@@ -1,1 +1,1 @@
-Times New Roman Font
+Andrew Perel's Javascript class repository
