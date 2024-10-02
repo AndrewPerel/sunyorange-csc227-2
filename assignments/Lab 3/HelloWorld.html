@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+
+<script>
+	let k, f, c = null;
+
+	//F TO C
+	f = Number(prompt("Enter a temperature in F"));
+	fToC(f);
+	console.log(f + " degrees F in C is " + c);
+
+	//C TO K
+	c = Number(prompt("Enter a temperature in C"));
+	cToK(c);
+	console.log(c + " degrees C in K is " + k);
+
+	//F TO K
+	f = Number(prompt("Enter a temperature in F"));
+	fToK(f);
+	console.log(f + " degrees F in K is " + k);
+
+	function fToC(f)
+	{
+		c = (f - 32) * 5 / 9;
+		return c;
+	}
+
+	function cToK(c)
+	{
+		k = c + 273;
+		return k;
+	}
+
+	function fToK(f)
+	{
+		fToC(f);
+		cToK(c);
+		return k;
+	}
+</script>
+
+</body>
+</html>
