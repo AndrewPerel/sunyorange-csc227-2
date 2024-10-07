@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+
+<script>
+	main();
+
+	function main()
+	{
+        const restaurant = {
+			"open": false,
+			"hoursOpen": 0
+		};
+
+		//How many available tables there are
+		const tablesOpen = {
+			"smallTable": 5,
+			"mediumTable": 3,
+			"largeTable": 1
+		}
+
+		//Whether or not a customer is at the desk wanting a table
+		const customerParties = {
+			"smallParty": false,
+			"mediumParty": false,
+			"largeParty": false,
+			"angryParties": 0
+		}
+
+        open(restaurant);
+
+		while (restaurant.open === true)
+		{
+			customersArrive(customerParties, tablesOpen);
+
+            console.log(restaurant, tablesOpen, customerParties);
+
+			occupyTable(tablesOpen, customerParties);
+
+            console.log(restaurant, tablesOpen, customerParties);
+
+			customersArrive(customerParties, tablesOpen);
+			occupyTable(tablesOpen, customerParties);
+            customersArrive(customerParties, tablesOpen);
+			occupyTable(tablesOpen, customerParties);
+
+            console.log(restaurant, tablesOpen, customerParties);
+
+			leaveTable(tablesOpen);
+			advanceTime(restaurant);
+			restaurantStatus(restaurant);
+
+            console.log(restaurant, tablesOpen, customerParties);
+		}
+	}
+
+	function open(r) {
+		r.open = true;
+	}
+
+    function advanceTime(r) {
+		r.hoursOpen++;
+	}
+
+	//Restaurant closes after 8 hours
+	function restaurantStatus(r) {
+		if (r.hoursOpen === 8) {
+			r.open = false;
+		}
+	}
+
+	//A random size party arrives and checks if there is an available table, leaving angrily if there is not
+	function customersArrive(c, t) {
+		let party = Math.floor(Math.random() * 3);
+
+        if (party === 0) {
+			if (t.smallTable > 0) {
+                c.smallParty = true;
+			}
+			else {
+				c.angryParties++;
+			}
+		}
+        if (party === 1) {
+            if (t.mediumTable > 0) {
+				c.mediumParty = true;
+            }
+            else {
+                c.angryParties++;
+            }
+        }
+        if (party === 2) {
+            if (t.largeTable > 0) {
+                c.largeParty = true;
+            }
+            else {
+                c.angryParties++;
+            }
+        }
+	}
+
+	//If there is an available table, it becomes occupied
+	function occupyTable(t, c) {
+		if (c.smallParty === true) {
+			c.smallParty = false;
+            t.smallTable--;
+		}
+        if (c.mediumParty === true) {
+            c.mediumParty = false;
+            t.mediumTable--;
+		}
+        if (c.largeParty === true) {
+            c.largeParty = false;
+            t.largeTable--;
+        }
+	}
+
+	//Parties leave all at once after every hour, freeing all tables
+	function leaveTable(t) {
+        t.smallTable = 5;
+        t.mediumTable = 3;
+        t.largeTable = 1;
+	}
+
+</script>
+
+</body>
+</html>
