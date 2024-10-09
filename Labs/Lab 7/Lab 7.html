@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+
+<script>
+	main();
+
+	function main()
+	{
+        const gate = {
+			"state": "open"
+		};
+
+		const train = {
+			"speed": 10,
+			"distanceFromGate": 50
+		}
+
+		const controller = {
+			"on": false,
+			"gate": gate,
+			"train": train
+		}
+
+        turnOn(controller);
+        console.log(JSON.stringify(controller, null, 2));
+
+		while (controller.gate.state === "open")
+		{
+			advanceTrain(controller.train);
+            updateGate(controller.gate, controller.train);
+            console.log(JSON.stringify(controller, null, 2));
+		}
+
+        turnOff(controller);
+        console.log(JSON.stringify(controller, null, 2));
+	}
+
+	function turnOn(c) {
+		c.on = true;
+	}
+
+	function turnOff(c) {
+		c.on = false;
+	}
+
+    function advanceTrain(t) {
+		t.distanceFromGate -= t.speed;
+	}
+
+	function updateGate(g, t)
+	{
+		if (t.distanceFromGate === 0) {
+            g.state = "closed";
+		}
+		else {
+			g.state = "open";
+        }
+    }
+
+</script>
+
+</body>
+</html>
