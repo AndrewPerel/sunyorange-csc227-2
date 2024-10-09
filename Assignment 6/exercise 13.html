@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+
+<script>
+	main();
+
+	function main()
+	{
+		commas();
+	}
+
+	function commas()
+	{
+		let input = String(prompt("Enter a number"));
+		let number = "";
+		let counter = 0;
+
+		while (input != "")
+		{
+			//places commas
+			if (counter == 3)
+			{
+				counter = 0;
+				number = "," + number;
+			}
+
+			let lastDigit = String(input).slice(-1);
+			input = input.slice(0, -1);
+			number = lastDigit + number;
+			counter++;
+		}
+	
+		console.log(number);
+	}
+
+</script>
+
+</body>
+</html>
