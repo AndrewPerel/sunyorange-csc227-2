@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+
+<script>
+	main();
+
+	function main()
+	{
+		palindrome();
+	}
+
+	function palindrome()
+	{
+		input = String(prompt("Enter any sentence"));
+
+		y = input
+
+		let backwards = "";
+		let lastLetter = "";
+	
+		while (y != "")
+		{
+			lastLetter = y.slice(-1);
+ 			y = y.slice(0, -1);
+			backwards += lastLetter;
+		}
+
+		if (backwards == input)
+		{
+			console.log("TRUE   This is a palindrome")
+		}
+
+		else
+		{
+			console.log("FALSE   This is not a palindrome")
+		}
+	}
+
+</script>
+
+</body>
+</html>
