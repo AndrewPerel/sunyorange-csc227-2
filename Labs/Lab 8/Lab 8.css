@@ -1,0 +1,20 @@
+th, td {
+    border: 1px solid black;
+}
+
+table {
+    width: 400px;
+    border-collapse: collapse;
+}
+
+tr {
+    height: 50px;
+}
+
+th {
+    background-color:white;
+}
+
+th:hover {
+    background-color:lightgray;
+}
