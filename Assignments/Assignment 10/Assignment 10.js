@@ -17,7 +17,12 @@ function main() {
                 return;
             }
 
-            const fullResult = String(JSON.parse(e.target.responseText).datetime);
+            request.addEventListener("timeout", function (e) {
+                document.getElementById("status").innerHTML =
+                    e.type;
+            });
+
+            const fullResult = JSON.parse(e.target.responseText).datetime;
             document.getElementById("time").innerHTML = fullResult.substring(11, 16);
         }
     }
