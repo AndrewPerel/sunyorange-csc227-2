@@ -1,0 +1,25 @@
+tr:nth-child(odd) {
+    background-color: lightgray;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: auto;
+    border: 2px solid black;
+}
+
+tr, td {
+    padding: 2px;
+    text-align: center;
+}
+
+td {
+    border: 1px solid black;
+    width: auto;
+}
+
+th {
+    width: 200px;
+    text-align: center;
+}
