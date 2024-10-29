@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<body onload="main()">
+    <form>
+        <input id="inputA" placeholder="Enter first number A" />
+        <input id="inputB" placeholder="Enter second number B" />
+        <input type="button" id="formBTN" value="Add">
+    </form>
+    <p id="formResult"></p>
+
+    <script>
+
+        function result(e) {
+            if (e.target.status >= 400) {
+                document.getElementById("formResult").innerHTML = e.target.status;
+                return;
+            }
+
+            console.log(e.target.responseText);
+            document.getElementById("formResult").innerHTML = JSON.parse(e.target.responseText).val;
+        }
+
+        function main() {
+            document.getElementById("formBTN").addEventListener("click", getAddAPI);
+
+            function getAddAPI(e) {
+                const inputA = document.getElementById("inputA").value;
+                const inputB = document.getElementById("inputB").value;
+                const url = `http://localhost:3000/api/addNums?a=${inputA}&b=${inputB}`;
+                const request = new XMLHttpRequest();
+
+                request.addEventListener("load", result);
+                request.addEventListener("timeout", function (e) {
+                    document.getElementById("formResult").innerHTML = e.type;
+                });
+                request.addEventListener("error", function (e) {
+                    document.getElementById("formResult").innerHTML = e;
+                });
+                request.open("GET", url, true);
+                request.send();
+            }
+        }
+
+    </script>
+</body>
+</html> 
