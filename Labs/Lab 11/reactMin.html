@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function ButtonText(props) {
+            return (
+                <>
+                    Click me! {props.count}
+                </>
+            );
+        }
+
+        function MyButton(props) {
+            const [count, setCount] = React.useState(Number(props.initVal));
+
+            function handleClick() {
+                setCount(count + 1);
+            }
+
+            return (
+                <button onClick={handleClick}>
+                    <ButtonText count={count} />
+                </button>
+            );
+        }
+
+        function RepeatingWord(props) {
+            const word = props.word;
+            const displayCount = Number(props.displayCount);
+            let divText = "";
+
+            for (let i = 0; i < displayCount; i++) {
+                divText += word + " ";
+            }
+
+            return (
+                <div>
+                    {divText}
+                </div>
+            );
+        }
+
+        function RepeatingWordForm() {
+            const [word, setWord] = React.useState("");
+            const [displayCount, setDisplayCount] = React.useState(0);
+            RepeatingWord(word, displayCount);
+
+
+            return (
+                <div>
+                    <input onChange={e => setWord(e.target.value)} type="text" placeholder="Word to be repeated" />
+                    <input onChange={e => setDisplayCount(Number(e.target.value))} type="number" placeholder="Repeat number" />
+                    <p />
+                    <RepeatingWord word={word} displayCount={displayCount} />
+                </div>
+            );
+        }
+
+        function MyApp() {
+            return (
+                <>
+                    <h1>reactMin</h1>
+                    <MyButton initVal="0" />
+                    <MyButton initVal="0" />
+                    <p />
+                    <RepeatingWord word="word" displayCount="3" />
+                    <p />
+                    <RepeatingWordForm />
+                </>
+            );
+        }
+
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+        root.render(<MyApp />);
+    </script>
+    <!--
+      Note: this page is a great way to try React but it's not suitable for production.
+      It slowly compiles JSX with Babel in the browser and uses a large development build of React.
+
+      Read this page for starting a new React project with JSX:
+      https://react.dev/learn/start-a-new-react-project
+
+      Read this page for adding React with JSX to an existing project:
+      https://react.dev/learn/add-react-to-an-existing-project
+    -->
+</body>
+
+</html>
