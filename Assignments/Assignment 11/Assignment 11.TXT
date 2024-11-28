@@ -1,0 +1,30 @@
+1) 
+const largest = (a, b, c) => {
+    if (a > b && a > c) return a;
+    if (b > a && b > c) return b;
+    return c;
+}
+
+2)
+See attached files
+
+3)
+function sum(n) {
+   if (n === 1) {
+      return 1;
+   }
+   return n + sum(n - 1);
+}
+Explanation:
+This function recursively calls itself using a number it itself generated.
+The number it generated is the same one it used to call itself, but
+decremented by 1. It will keep doing this until the number has been
+decremented all the the way down to 1, in which case it will return 1 and stop
+calling itself.
+
+4)
+You can get the "Maximum call stack size exceeded" error in many ways,
+including a recursive function that calls itself way too many times, overloading
+the call stack past its limit, which is what was happening in our example. Other
+ways of getting this error include deeply nested function calls and using certain
+methods with very large arguments or arrays.
