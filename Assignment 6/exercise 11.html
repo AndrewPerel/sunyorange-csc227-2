@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+
+<script>
+	main();
+
+	function main()
+	{
+		ordinal();
+	}
+
+	function ordinal()
+	{
+		let input = String(prompt("Enter a number"));
+		let suffix = "";
+
+		if (input == "11" || input == "12" || input == "13")
+		{
+			suffix = "th";
+		}
+
+		else 
+		{
+			let lastNumber = input.slice(-1);
+
+			if (lastNumber == "1")
+			{
+				suffix = "st";
+			}		
+			else if (lastNumber == "2")
+			{
+				suffix = "nd";
+			}
+			else if (lastNumber == "3")
+			{
+				suffix = "rd";
+			}
+			else 
+			{
+				suffix = "th";
+			}
+		}
+
+		console.log(input + suffix)
+	}
+
+</script>
+
+</body>
+</html>
